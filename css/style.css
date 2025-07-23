@@ -1,0 +1,271 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333131;
+  font-family: 'Smooch Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === Birthday Heading === */
+.q-1 {
+  text-align: center;
+  margin-top: 8rem;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 15px #ff6ec4, 0 0 30px #e38fc1, 0 0 45px #ff1493;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 15px #ff6ec4;
+  }
+  to {
+    text-shadow: 0 0 25px #ff6ec4, 0 0 45px #d67bd0, 0 0 60px #ff1493;
+  }
+}
+
+/* === Cake Styling === */
+.cake {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 2rem auto;
+}
+
+.icing {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  height: 25px;
+  background: #fff0f0;
+  border-radius: 20px 20px 0 0;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 70%, 90% 80%, 80% 60%,
+    70% 75%, 60% 60%, 50% 80%, 40% 50%, 30% 70%, 
+    20% 60%, 10% 80%, 0% 70%
+  );
+  animation: drip 3s infinite ease-in-out;
+}
+
+.layers-1, .layers-2, .layers-3 {
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.layers-1 {
+  background: #e09577;
+  height: 3rem;
+  width: 60%;
+  box-shadow: 0 5px #8b5a44, 0 10px #6b4131;
+  margin-top: 6rem;
+}
+
+.layers-2 {
+  background: #560671;
+  height: 3rem;
+  width: 70%;
+  box-shadow: 0 5px hsl(36, 48%, 32%), 0 10px #6b4131;
+}
+
+.layers-3 {
+  background: #980c59;
+  height: 3rem;
+  width: 85%;
+}
+
+.plate {
+  width: 90%;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 2px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+
+.candle-1 {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 30px;
+  background: white;
+  border-radius: 3px;
+  animation: candle-float 2s infinite ease-in-out;
+}
+
+@keyframes candle-float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.flame {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: flame-flicker 0.4s infinite alternate;
+  box-shadow: 0 0 10px gold, 0 0 20px orange, 0 0 30px red, 0 0 40px gold;
+}
+
+@keyframes flame-flicker {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* === Slideshow === */
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.slideshow {
+  display: flex;
+  width: calc(11 * 100vw);
+  animation: slideRight 40s linear infinite;
+}
+
+.slide {
+  flex: 0 0 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.slide img {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.slide img:hover {
+  transform: scale(1.05);
+}
+
+.caption {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  animation: textSlideUp 2s ease-in-out;
+}
+
+@keyframes textSlideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-1000vw); }
+}
+
+/* === Sparkles and Confetti Hidden by Default (unless you use them manually) === */
+.sparkles,
+.confetti-blast {
+  display: none;
+}
+
+/* === Fixed Music Button === */
+.fixed-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.7rem 1.2rem;
+  background-color: #eb94a3;
+  color: #000;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Dancing Script', cursive;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* === Surprise Button === */
+.fade-text {
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.t-1 {
+  background-color: #ff6ec4;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+.t-1:hover {
+  background-color: #ff85c1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 110, 196, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(255, 110, 196, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 110, 196, 0); }
+}
+
+/* === Media Queries === */
+@media (max-width: 768px) {
+  .q-1 {
+    font-size: 2rem;
+    margin-top: 4rem;
+  }
+
+  .caption {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
+
+  .slide img {
+    width: 90%;
+  }
+
+  .t-1 {
+    font-size: 1rem;
+  }
+
+  .fixed-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+}
